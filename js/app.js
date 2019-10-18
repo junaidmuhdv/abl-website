@@ -79,7 +79,7 @@
         return false;
     }); 
 
-    $("#header-contact-btn").click(function(e) {
+    $(".contact-btn").click(function(e) {
         e.preventDefault();
     $('html, body').animate({
         scrollTop: $("#contact-form").offset().top
