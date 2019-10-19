@@ -81,8 +81,27 @@
 
     $(".contact-btn").click(function(e) {
         e.preventDefault();
-    $('html, body').animate({
-        scrollTop: $("#contact-form").offset().top
-    }, 1000);
-});
+        $('html, body').animate({
+            scrollTop: $("#contact-form-section").offset().top
+        }, 1000);
+    });
+
+    $("#contact-form").on('submit', function(e) {
+        e.preventDefault();
+        $('#contact-submit-btn').html('<img src="images/tail-spin.svg" class="spinner-btn" />sending..');
+        $.ajax({
+            type: 'POST',
+            url: 'contact-form-submit.php',
+            data: $('#contact-form').serialize(),
+            success: function(response) {
+                $('#contact-submit-btn').html('send');
+                $('#form-send-message').text(response);
+                $("#contact-form").trigger("reset");
+            },
+            error: function(response) {
+                $('#form-send-message').text(response);
+            }
+        });
+    });
+
 }(jQuery)

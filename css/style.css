@@ -2626,3 +2626,8 @@ section#academy {
   height: 150px;
   margin-bottom: 20px;
 }
+
+.spinner-btn{
+  width: 20px;
+  margin-right: 15px;
+}
